@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TechPro Projects — Projects, Services & Contact</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-b from-slate-50 to-slate-100 text-slate-800">
+  <header class="sticky top-0 z-40 bg-white/60 backdrop-blur-sm border-b">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-indigo-600 to-pink-500 flex items-center justify-center text-white font-bold">TP</div>
+        <div>
+          <h1 class="text-lg font-semibold "> <b>#project</b>{studio}</h1>
+          <p class="text-xs text-slate-500">Innovative projects • Expert services • Let's collaborate</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-4">
+        <a href="#/" class="nav-link">Home</a>
+        <a href="#/projects" class="nav-link">Projects</a>
+        <a href="#/services" class="nav-link">Services</a>
+        <a href="#/contact" class="nav-link">Contact</a>
+
+        <button id="themeToggle" class="ml-2 px-3 py-2 border rounded-md text-sm" aria-label="Switch theme">
+          🌙
+        </button>
+
+        <button id="btnOpenLogin" class="ml-2 px-4 py-2 border rounded-md">Sign in</button>
+        <button id="btnLogout" class="ml-2 px-4 py-2 bg-indigo-600 text-white rounded-md hidden">Logout</button>
+        <button id="btnViewContacts" class="ml-2 px-4 py-2 border rounded-md text-sm hidden">Submissions</button>
+      </nav>
+
+
+      <div class="md:hidden">
+        <button id="mobileMenuBtn" class="p-2 rounded-md border">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="max-w-7xl mx-auto px-6 py-10">
+    <!-- Pages render here -->
+  </main>
+
+  <footer class="mt-12 py-8 border-t">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div>
+        <h4 class="font-semibold">TechPro Projects</h4>
+        <p class="text-sm text-slate-600">Creative technology solutions — frontend demo.</p>
+      </div>
+      <div class="flex gap-4">
+        <a href="#/contact" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Contact Us</a>
+        <a href="#/projects" class="px-4 py-2 border rounded-md">View Projects</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal container -->
+  <div id="modalBackdrop" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+    <div id="modal" class="w-full max-w-3xl p-6 bg-white rounded-xl shadow-lg max-h-[85vh] overflow-auto"></div>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="app.js"></script>
+</body>
+</html>

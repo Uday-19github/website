@@ -1,0 +1,256 @@
+:root {
+  --accent: #6366f1;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.page-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: none;
+  transition: all 320ms ease;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.12),
+    rgba(16, 185, 129, 0.06)
+  );
+}
+
+.fancy-bg {
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(99,102,241,0.06), transparent 15%),
+    radial-gradient(circle at 90% 80%, rgba(236,72,153,0.04), transparent 18%);
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.badge-contact {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* small UI animations */
+.card-entrance {
+  transform: translateY(6px);
+  opacity: 0;
+  transition: all 0.36s cubic-bezier(.2, .9, .2, 1);
+}
+
+.card-entrance.in {
+  transform: none;
+  opacity: 1;
+}
+
+/* ---------------------------------
+   Nav link hover animation
+----------------------------------*/
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #0f172a;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.35rem;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: width 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-link:hover {
+  color: #111827;
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::after {
+  width: 65%;
+  opacity: 1;
+}
+
+/* dark mode colors for nav links */
+body.dark-body .nav-link {
+  color: #e5e7eb;
+}
+
+body.dark-body .nav-link:hover {
+  color: #ffffff;
+}
+
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.alert-show {
+  animation: slideDown 0.28s ease forwards;
+}
+
+/* subtle floating for hero video */
+@keyframes floaty {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+/* mobile improvements */
+@media (max-width: 768px) {
+  header .max-w-7xl {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .badge-contact {
+    font-size: 12px;
+  }
+}
+
+/* Services horizontal auto-scroll using JS (no drag) */
+.services-marquee {
+  overflow-x: hidden;  /* scrolling is via JS and wheel */
+  overflow-y: visible;
+  position: relative;
+  width: 100%;
+}
+
+.services-track {
+  display: inline-flex;
+  gap: 1.5rem;
+  /* allow children to wrap text normally */
+  white-space: normal;
+}
+
+
+/* Each card width so they scroll nicely */
+.services-card {
+  min-width: 260px;
+  max-width: 320px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+/* Dark theme basics */
+body.dark-body {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+body.dark-body header {
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+body.dark-body footer {
+  border-color: #1e293b;
+}
+
+body.dark-body .glass,
+/* body.dark-body .services-card, */
+body.dark-body .card-entrance,
+body.dark-body .bg-white {
+  background-color: #0f172a !important;
+  color: #e5e7eb;
+}
+
+body.dark-body .text-slate-600 {
+  color: #cbd5f5;
+}
+
+body.dark-body .hero-gradient {
+  background: radial-gradient(circle at top left, rgba(56,189,248,0.12), rgba(30,64,175,0.6));
+}
+.services-card h4,
+.services-card p {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Dark mode: make "Why work with us?" box readable */
+body.dark-body .why-box {
+  /* darker gradient for contrast */
+  background: linear-gradient(90deg, #0f172a, #020617);
+  color: #e5e7eb;
+}
+
+body.dark-body .why-box h3 {
+  color: #e5e7eb;
+}
+
+body.dark-body .why-box li {
+  color: #e5e7eb;
+}
+/* vertical separator between cards in dark theme */
+body.dark-body .services-card::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: -0.75rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(148, 163, 184, 0),
+    rgba(148, 163, 184, 0.7),
+    rgba(148, 163, 184, 0)
+  );
+}
+
+/* hide separator before the very first card */
+body.dark-body .services-card:first-child::before {
+  display: none;
+}
